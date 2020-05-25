@@ -1,7 +1,7 @@
 library(lubridate)
 
 # reading relevant data
-data <- read.table("household_power_consumption.txt", sep = ";", skip = 66637, nrows = 2880)
+power<- read.table("household_power_consumption.txt", sep = ";", skip = 66637, nrows = 2880)
 
 # clearing name row and unrelevant variables, casting to right classes
 power <- power %>% mutate(V1 = as.POSIXct(dmy_hms(as.character(paste(V1, V2)))),
