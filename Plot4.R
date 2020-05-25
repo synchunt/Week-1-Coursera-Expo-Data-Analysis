@@ -12,7 +12,7 @@ data <- data %>% mutate(V1 = as.POSIXct(dmy_hms(as.character(paste(V1, V2)))),
 
 # create plot
 par(mfrow = c(2, 2))
-
+png("Plot4.png", height = 480, width = 480)
 with(data, plot(V1,V3, type="l", xlab = "", ylab = "Global Active Power (kilowatts)"))
 
 with(data, plot(V1,V5, type="l", xlab = "datetime", ylab = "Voltage"))
@@ -23,7 +23,6 @@ with(data, points(V1,V8, col="red", type="l"))
 with(data, points(V1,V9, col="blue", type="l"))
 legend("topright", lty=1, col = c("black", "red", "blue"), 
        legend = c("Sub_Metering_1", "Sub_Metering_2", "Sub_Metering_3"))
-png("Plot4.png", height = 480, width = 480)
 
 with(data, plot(V1,V4, type="l", xlab = "datetime", ylab = "Global_reactive_power"))
 dev.off()
